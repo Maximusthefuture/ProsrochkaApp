@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		3817CAD927E1E87C000B96EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CAD827E1E87C000B96EF /* AppDelegate.swift */; };
 		3817CADB27E1E87C000B96EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CADA27E1E87C000B96EF /* SceneDelegate.swift */; };
-		3817CADD27E1E87C000B96EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CADC27E1E87C000B96EF /* ViewController.swift */; };
+		3817CADD27E1E87C000B96EF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CADC27E1E87C000B96EF /* ProductListViewController.swift */; };
 		3817CAE027E1E87C000B96EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817CADE27E1E87C000B96EF /* Main.storyboard */; };
 		3817CAE227E1E87F000B96EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817CAE127E1E87F000B96EF /* Assets.xcassets */; };
 		3817CAE527E1E87F000B96EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817CAE327E1E87F000B96EF /* LaunchScreen.storyboard */; };
 		3817CAF027E1E880000B96EF /* ProsrochkaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CAEF27E1E880000B96EF /* ProsrochkaAppTests.swift */; };
 		3817CAFA27E1E880000B96EF /* ProsrochkaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CAF927E1E880000B96EF /* ProsrochkaAppUITests.swift */; };
 		3817CAFC27E1E880000B96EF /* ProsrochkaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CAFB27E1E880000B96EF /* ProsrochkaAppUITestsLaunchTests.swift */; };
+		3817CB0927E1E948000B96EF /* AddEditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0827E1E948000B96EF /* AddEditProductViewController.swift */; };
+		3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */; };
+		3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */; };
+		3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0E27E22261000B96EF /* Extensions+VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 		3817CAD527E1E87C000B96EF /* ProsrochkaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProsrochkaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817CAD827E1E87C000B96EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3817CADA27E1E87C000B96EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3817CADC27E1E87C000B96EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3817CADC27E1E87C000B96EF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		3817CADF27E1E87C000B96EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3817CAE127E1E87F000B96EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3817CAE427E1E87F000B96EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		3817CAF527E1E880000B96EF /* ProsrochkaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProsrochkaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817CAF927E1E880000B96EF /* ProsrochkaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsrochkaAppUITests.swift; sourceTree = "<group>"; };
 		3817CAFB27E1E880000B96EF /* ProsrochkaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsrochkaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3817CB0827E1E948000B96EF /* AddEditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductViewController.swift; sourceTree = "<group>"; };
+		3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		3817CB0E27E22261000B96EF /* Extensions+VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+VC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +107,13 @@
 		3817CAD727E1E87C000B96EF /* ProsrochkaApp */ = {
 			isa = PBXGroup;
 			children = (
-				3817CAD827E1E87C000B96EF /* AppDelegate.swift */,
-				3817CADA27E1E87C000B96EF /* SceneDelegate.swift */,
-				3817CADC27E1E87C000B96EF /* ViewController.swift */,
-				3817CADE27E1E87C000B96EF /* Main.storyboard */,
-				3817CAE127E1E87F000B96EF /* Assets.xcassets */,
-				3817CAE327E1E87F000B96EF /* LaunchScreen.storyboard */,
+				3817CB1027E2379F000B96EF /* Support */,
+				3817CB1127E237AA000B96EF /* Views */,
+				3817CADC27E1E87C000B96EF /* ProductListViewController.swift */,
+				3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */,
 				3817CAE627E1E87F000B96EF /* Info.plist */,
+				3817CB0827E1E948000B96EF /* AddEditProductViewController.swift */,
+				3817CB0E27E22261000B96EF /* Extensions+VC.swift */,
 			);
 			path = ProsrochkaApp;
 			sourceTree = "<group>";
@@ -125,6 +133,26 @@
 				3817CAFB27E1E880000B96EF /* ProsrochkaAppUITestsLaunchTests.swift */,
 			);
 			path = ProsrochkaAppUITests;
+			sourceTree = "<group>";
+		};
+		3817CB1027E2379F000B96EF /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3817CAD827E1E87C000B96EF /* AppDelegate.swift */,
+				3817CADA27E1E87C000B96EF /* SceneDelegate.swift */,
+				3817CADE27E1E87C000B96EF /* Main.storyboard */,
+				3817CAE127E1E87F000B96EF /* Assets.xcassets */,
+				3817CAE327E1E87F000B96EF /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		3817CB1127E237AA000B96EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3817CADD27E1E87C000B96EF /* ViewController.swift in Sources */,
+				3817CB0927E1E948000B96EF /* AddEditProductViewController.swift in Sources */,
+				3817CADD27E1E87C000B96EF /* ProductListViewController.swift in Sources */,
+				3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */,
+				3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */,
 				3817CAD927E1E87C000B96EF /* AppDelegate.swift in Sources */,
 				3817CADB27E1E87C000B96EF /* SceneDelegate.swift in Sources */,
+				3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,9 +476,9 @@
 				INFOPLIST_FILE = ProsrochkaApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,9 +504,9 @@
 				INFOPLIST_FILE = ProsrochkaApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
