@@ -11,6 +11,8 @@ import UIKit
 
 class AddEditProductViewController: UIViewController {
     
+    var coreDataStack: CoreDataStack?
+    var viewModel: AddEditViewModel?
     
     let imageView: UIImageView = {
         $0.backgroundColor = .systemGray
@@ -50,6 +52,7 @@ class AddEditProductViewController: UIViewController {
         $0.setTitle("Сохранить", for: .normal)
         $0.backgroundColor = .blue
         $0.layer.cornerRadius = 16
+        $0.addTarget(self, action: #selector(handleSaveButton), for: .touchUpInside)
         return $0
     }(UIButton(frame: .zero))
     
@@ -67,6 +70,7 @@ class AddEditProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = AddEditViewModel(coreDataStack: coreDataStack!)
         view.backgroundColor = .white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -74,6 +78,11 @@ class AddEditProductViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         initImageView()
         initTextFields()
+    }
+    
+    @objc private func handleSaveButton(_ sender: UIButton) {
+        viewModel?.saveData()
+        navigationController?.popViewController(animated: true)
     }
     
     private func initImageView() {

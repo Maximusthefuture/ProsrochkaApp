@@ -61,6 +61,7 @@ class ProductsCell: UITableViewCell {
             
             stackView.addArrangedSubview(tagView)
         }
+        
 //        name.text = viewModel.
         
     }

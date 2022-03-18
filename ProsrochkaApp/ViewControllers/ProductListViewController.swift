@@ -23,6 +23,7 @@ class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getProducts()
         view.backgroundColor = .white
         initTableView()
         initViews()
@@ -45,6 +46,8 @@ class ProductListViewController: UIViewController {
     
     @objc private func handleAddButton(_ sender: UIButton) {
         let vc = AddEditProductViewController()
+        //MARK: Move to DI
+        vc.coreDataStack = viewModel.coreDataStack
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -52,8 +55,9 @@ class ProductListViewController: UIViewController {
 extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: ProductsCell.self), for: indexPath) as! ProductsCell
-        cell.name.text = "HELLO"
-        cell.expDate.text  = "До: 12.03.2022"
+        let product = viewModel.listOfProduct[indexPath.row]
+        cell.name.text = product.name
+        cell.expDate.text = "\(product.expiredDate)"
         cell.toDate.text = "Осталось 5 из 14 дней"
         cell.configure(viewModel: viewModel)
         return cell
@@ -64,7 +68,7 @@ extension ProductListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.listOfProduct.count
     }
 }
 
