@@ -20,6 +20,10 @@
 		3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */; };
 		3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */; };
 		3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0E27E22261000B96EF /* Extensions+VC.swift */; };
+		3817CB1327E23B06000B96EF /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB1227E23B06000B96EF /* ProductsCell.swift */; };
+		38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */; };
+		38F143D027E33375009402AF /* TagUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143CF27E33375009402AF /* TagUIView.swift */; };
+		38F143D227E33464009402AF /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143D127E33464009402AF /* ProductListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		3817CB0E27E22261000B96EF /* Extensions+VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+VC.swift"; sourceTree = "<group>"; };
+		3817CB1227E23B06000B96EF /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
+		38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		38F143CF27E33375009402AF /* TagUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagUIView.swift; sourceTree = "<group>"; };
+		38F143D127E33464009402AF /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,8 @@
 				3817CAE627E1E87F000B96EF /* Info.plist */,
 				3817CB0827E1E948000B96EF /* AddEditProductViewController.swift */,
 				3817CB0E27E22261000B96EF /* Extensions+VC.swift */,
+				38F143D127E33464009402AF /* ProductListViewModel.swift */,
+				38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */,
 			);
 			path = ProsrochkaApp;
 			sourceTree = "<group>";
@@ -150,7 +160,9 @@
 		3817CB1127E237AA000B96EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38F143CF27E33375009402AF /* TagUIView.swift */,
 				3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */,
+				3817CB1227E23B06000B96EF /* ProductsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,12 +299,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3817CB0927E1E948000B96EF /* AddEditProductViewController.swift in Sources */,
+				3817CB1327E23B06000B96EF /* ProductsCell.swift in Sources */,
 				3817CADD27E1E87C000B96EF /* ProductListViewController.swift in Sources */,
 				3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */,
 				3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */,
 				3817CAD927E1E87C000B96EF /* AppDelegate.swift in Sources */,
+				38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */,
+				38F143D227E33464009402AF /* ProductListViewModel.swift in Sources */,
 				3817CADB27E1E87C000B96EF /* SceneDelegate.swift in Sources */,
 				3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */,
+				38F143D027E33375009402AF /* TagUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
