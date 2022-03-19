@@ -14,9 +14,11 @@ class ProductsCell: UITableViewCell {
     }(UILabel(frame: .zero))
     
     let productPicture: UIImageView = {
-        $0.layer.cornerRadius = 16
+        $0.layer.cornerRadius = 9
+        $0.image?.withRenderingMode(.alwaysTemplate)
+        $0.clipsToBounds = true
         $0.image = UIImage(named: "fish")
-        
+        $0.contentMode = .scaleAspectFill
         return $0
     }(UIImageView(frame: .zero))
     
@@ -46,7 +48,7 @@ class ProductsCell: UITableViewCell {
     }(UIView(frame: .zero))
     
     
-    func configure(viewModel: ProductListViewModel?) {
+    func configure(viewModel: ProductListViewModelImp?) {
         stackView.isAccessibilityElement = false
         stackView.accessibilityIdentifier = "StackView"
         guard let count = viewModel?.tagsArray else { return }
@@ -70,15 +72,17 @@ class ProductsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .systemGray
         addSubview(roundedView)
+        
         roundedView.addSubview(name)
         roundedView.addSubview(expDate)
         roundedView.addSubview(toDate)
         roundedView.addSubview(stackView)
         roundedView.addSubview(productPicture)
-        
+        roundedView.backgroundColor = .white
         roundedView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 8, bottom: 0, right: 8))
-        productPicture.anchor(top: roundedView.topAnchor, leading: roundedView.leadingAnchor, bottom: roundedView.bottomAnchor, trailing: nil, padding: .init(top: 8, left: 8, bottom: 0, right: 0))
+        productPicture.anchor(top: roundedView.topAnchor, leading: roundedView.leadingAnchor, bottom: roundedView.bottomAnchor, trailing: nil, padding: .init(top: 8, left: 8, bottom: 8, right: 0), size: .init(width: 100, height: 100))
         name.anchor(top: roundedView.topAnchor, leading: productPicture.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0))
         expDate.anchor(top: name.bottomAnchor, leading: productPicture.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0))
         toDate.anchor(top: expDate.bottomAnchor, leading: productPicture.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0))
@@ -93,22 +97,31 @@ class ProductsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         //        roundedView.layer.shadowColor = UIColor.black.cgColor
-                roundedView.layer.masksToBounds = true
-        
-        roundedView.layer.cornerRadius = 8
-        roundedView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        roundedView.layer.shadowRadius = 3
-        roundedView.layer.shadowOpacity = 0.3
-//        roundedView.layer.masksToBounds = false
-        roundedView.layer.shadowColor = UIColor.black.cgColor
-        roundedView.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,
-                                             byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 8, height:
-                                                                                                    8)).cgPath
-        
-        roundedView.layer.shouldRasterize = true
-        roundedView.layer.rasterizationScale = UIScreen.main.scale
+//                roundedView.layer.masksToBounds = true
+//        
+//        roundedView.layer.cornerRadius = 8
+//        roundedView.layer.shadowOffset = CGSize(width: 0, height: 3)
+//        roundedView.layer.shadowRadius = 3
+//        roundedView.layer.shadowOpacity = 0.3
+////        roundedView.layer.masksToBounds = false
+//        roundedView.layer.shadowColor = UIColor.black.cgColor
+//        roundedView.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,
+//                                             byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 8, height:
+//                                                                                                    8)).cgPath
+//        
+//        roundedView.layer.shouldRasterize = true
+//        roundedView.layer.rasterizationScale = UIScreen.main.scale
         
 //        roundedView.layer.shouldRasterize = true
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productPicture.image = nil
+        name.text = nil
+        expDate.text = nil
+        toDate.text = nil
+       
     }
     
 }

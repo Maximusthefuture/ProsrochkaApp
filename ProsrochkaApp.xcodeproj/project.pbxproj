@@ -27,7 +27,7 @@
 		38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E027E486BC00EC3294 /* Product+CoreDataProperties.swift */; };
 		38E2D3E627E487E300EC3294 /* AddEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E527E487E300EC3294 /* AddEditViewModel.swift */; };
 		38F143D027E33375009402AF /* TagUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143CF27E33375009402AF /* TagUIView.swift */; };
-		38F143D227E33464009402AF /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143D127E33464009402AF /* ProductListViewModel.swift */; };
+		38F143D227E33464009402AF /* ProductListViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143D127E33464009402AF /* ProductListViewModelImp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 		38E2D3E327E4871100EC3294 /* Overdue v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Overdue v2.xcdatamodel"; sourceTree = "<group>"; };
 		38E2D3E527E487E300EC3294 /* AddEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewModel.swift; sourceTree = "<group>"; };
 		38F143CF27E33375009402AF /* TagUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagUIView.swift; sourceTree = "<group>"; };
-		38F143D127E33464009402AF /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		38F143D127E33464009402AF /* ProductListViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelImp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 		38E2D3E427E487D100EC3294 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				38F143D127E33464009402AF /* ProductListViewModel.swift */,
+				38F143D127E33464009402AF /* ProductListViewModelImp.swift */,
 				38E2D3E527E487E300EC3294 /* AddEditViewModel.swift */,
 			);
 			path = ViewModels;
@@ -344,7 +344,7 @@
 				38E2D3E627E487E300EC3294 /* AddEditViewModel.swift in Sources */,
 				38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */,
 				38E2D3E127E486BC00EC3294 /* Product+CoreDataClass.swift in Sources */,
-				38F143D227E33464009402AF /* ProductListViewModel.swift in Sources */,
+				38F143D227E33464009402AF /* ProductListViewModelImp.swift in Sources */,
 				3817CADB27E1E87C000B96EF /* SceneDelegate.swift in Sources */,
 				38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */,
 				3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */,

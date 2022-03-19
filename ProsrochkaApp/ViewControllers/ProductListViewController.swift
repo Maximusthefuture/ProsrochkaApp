@@ -10,7 +10,7 @@ import UIKit
 class ProductListViewController: UIViewController {
     
     private let tableView = UITableView()
-    private let viewModel = ProductListViewModel()
+    private let viewModel = ProductListViewModelImp()
     
     private let addButton: UIButton = {
         $0.setTitle("+ Добавить", for: .normal)
@@ -23,10 +23,13 @@ class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getProducts()
-        view.backgroundColor = .white
+       
+        view.backgroundColor = .systemGray
+        
         initTableView()
         initViews()
+        viewModel.getProducts()
+//        viewModel.deleteAll()
     }
     
     private func initTableView() {
@@ -35,6 +38,7 @@ class ProductListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemGray
         tableView.register(ProductsCell.self, forCellReuseIdentifier: String.init(describing: ProductsCell.self))
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: padding, left: padding, bottom: padding, right: padding))
     }
@@ -48,6 +52,11 @@ class ProductListViewController: UIViewController {
         let vc = AddEditProductViewController()
         //MARK: Move to DI
         vc.coreDataStack = viewModel.coreDataStack
+        vc.reload = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -59,6 +68,8 @@ extension ProductListViewController: UITableViewDataSource {
         cell.name.text = product.name
         cell.expDate.text = "\(product.expiredDate)"
         cell.toDate.text = "Осталось 5 из 14 дней"
+        cell.productPicture.image = UIImage(data: product.image ?? Data())
+        
         cell.configure(viewModel: viewModel)
         return cell
     }

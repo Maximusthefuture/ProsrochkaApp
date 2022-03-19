@@ -13,6 +13,7 @@ class AddEditProductViewController: UIViewController {
     
     var coreDataStack: CoreDataStack?
     var viewModel: AddEditViewModel?
+    var reload: (() -> Void)?
     
     let imageView: UIImageView = {
         $0.backgroundColor = .systemGray
@@ -83,6 +84,7 @@ class AddEditProductViewController: UIViewController {
     @objc private func handleSaveButton(_ sender: UIButton) {
         viewModel?.saveData()
         navigationController?.popViewController(animated: true)
+        reload?()
     }
     
     private func initImageView() {
@@ -94,7 +96,6 @@ class AddEditProductViewController: UIViewController {
     
     @objc private func imageChoiceActionSheet() {
         let picker = UIImagePickerController()
-        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
             picker.sourceType = .camera
@@ -114,6 +115,8 @@ class AddEditProductViewController: UIViewController {
         actionSheet.addAction(cancelAction)
         present(actionSheet, animated: true, completion: nil)
     }
+    
+    
     
     private func initTextFields() {
         
@@ -137,6 +140,7 @@ extension AddEditProductViewController: UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         imageView.image = image?.withRenderingMode(.alwaysOriginal)
+        viewModel?.imageData = imageView.image?.pngData()
         dismiss(animated: true)
     }
     
