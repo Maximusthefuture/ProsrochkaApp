@@ -23,8 +23,13 @@ class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        view.backgroundColor = .systemGray
+        navigationController?.navigationBar.backgroundColor = .yellow
+        if #available(iOS 13.0, *) {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "circles.hexagonpath.fill"), style: .plain, target: self, action: nil)
+        } else {
+            // Fallback on earlier versions
+        }
+        view.backgroundColor = #colorLiteral(red: 0.9682769179, green: 0.9684478641, blue: 1, alpha: 1)
         
         initTableView()
         initViews()
@@ -38,7 +43,7 @@ class ProductListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .systemGray
+        tableView.backgroundColor = #colorLiteral(red: 0.9682769179, green: 0.9684478641, blue: 1, alpha: 1)
         tableView.register(ProductsCell.self, forCellReuseIdentifier: String.init(describing: ProductsCell.self))
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: padding, left: padding, bottom: padding, right: padding))
     }
@@ -65,12 +70,10 @@ extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: ProductsCell.self), for: indexPath) as! ProductsCell
         let product = viewModel.listOfProduct[indexPath.row]
-        cell.name.text = product.name
-        cell.expDate.text = "\(product.expiredDate)"
-        cell.toDate.text = "Осталось 5 из 14 дней"
+       
         cell.productPicture.image = UIImage(data: product.image ?? Data())
         
-        cell.configure(viewModel: viewModel)
+        cell.configure(viewModel: viewModel, indexPath: indexPath)
         return cell
     }
     
@@ -80,6 +83,12 @@ extension ProductListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.listOfProduct.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = AddEditProductViewController()
+        vc.coreDataStack = viewModel.coreDataStack
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

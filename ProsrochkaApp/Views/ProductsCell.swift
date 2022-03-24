@@ -48,12 +48,15 @@ class ProductsCell: UITableViewCell {
     }(UIView(frame: .zero))
     
     
-    func configure(viewModel: ProductListViewModelImp?) {
+    
+    
+    func configure(viewModel: ProductListViewModelImp?, indexPath: IndexPath) {
+        let product = viewModel?.listOfProduct[indexPath.row]
         stackView.isAccessibilityElement = false
         stackView.accessibilityIdentifier = "StackView"
-        guard let count = viewModel?.tagsArray else { return }
+        guard let count = product?.tags else { return }
         for title in count {
-            if stackView.subviews.count == (viewModel?.tagsArray.count)! {
+            if stackView.subviews.count == (count.count) {
                 break
             }
             let tagView = TagUIView()
@@ -63,8 +66,9 @@ class ProductsCell: UITableViewCell {
             
             stackView.addArrangedSubview(tagView)
         }
-        
-//        name.text = viewModel.
+        name.text = product?.name
+        expDate.text = "До: \((viewModel?.convertData(date: product?.expiredDate ?? Date()))!)"
+        toDate.text = "Осталось 5 из 14 дней"
         
     }
     
@@ -72,13 +76,14 @@ class ProductsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        backgroundColor = .systemGray
+        backgroundColor = #colorLiteral(red: 0.9682769179, green: 0.9684478641, blue: 1, alpha: 1)
         addSubview(roundedView)
-        
+        roundedView.applyShadows(cornedRadius: 8)
+        backgroundColor = .clear
         roundedView.addSubview(name)
         roundedView.addSubview(expDate)
         roundedView.addSubview(toDate)
-        roundedView.addSubview(stackView)
+        contentView.addSubview(stackView)
         roundedView.addSubview(productPicture)
         roundedView.backgroundColor = .white
         roundedView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 8, bottom: 0, right: 8))
@@ -96,6 +101,8 @@ class ProductsCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+//        roundedView.layer.masksToBounds = true
+       
         //        roundedView.layer.shadowColor = UIColor.black.cgColor
 //                roundedView.layer.masksToBounds = true
 //        

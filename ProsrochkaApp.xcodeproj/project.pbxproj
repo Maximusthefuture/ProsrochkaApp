@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04519F78D82C742A1C896DC6 /* Pods_ProsrochkaAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8040F4278BA4D134D5FD774C /* Pods_ProsrochkaAppTests.framework */; };
 		3817CAD927E1E87C000B96EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CAD827E1E87C000B96EF /* AppDelegate.swift */; };
 		3817CADB27E1E87C000B96EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CADA27E1E87C000B96EF /* SceneDelegate.swift */; };
 		3817CADD27E1E87C000B96EF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CADC27E1E87C000B96EF /* ProductListViewController.swift */; };
@@ -21,13 +22,19 @@
 		3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */; };
 		3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB0E27E22261000B96EF /* Extensions+VC.swift */; };
 		3817CB1327E23B06000B96EF /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817CB1227E23B06000B96EF /* ProductsCell.swift */; };
+		3839E8F927E9F263005C1C5A /* ExpirationDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */; };
+		3839E8FB27E9F565005C1C5A /* NumpadCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */; };
+		3839E8FD27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */; };
+		38E0998F27ECE1E800717639 /* ExpDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E0998E27ECE1E800717639 /* ExpDateHeader.swift */; };
 		38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */; };
 		38E2D3DD27E4844300EC3294 /* Overdue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3DB27E4844200EC3294 /* Overdue.xcdatamodeld */; };
 		38E2D3E127E486BC00EC3294 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3DF27E486BC00EC3294 /* Product+CoreDataClass.swift */; };
 		38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E027E486BC00EC3294 /* Product+CoreDataProperties.swift */; };
-		38E2D3E627E487E300EC3294 /* AddEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E527E487E300EC3294 /* AddEditViewModel.swift */; };
+		38E2D3E627E487E300EC3294 /* AddEditViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E527E487E300EC3294 /* AddEditViewModelImp.swift */; };
 		38F143D027E33375009402AF /* TagUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143CF27E33375009402AF /* TagUIView.swift */; };
 		38F143D227E33464009402AF /* ProductListViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143D127E33464009402AF /* ProductListViewModelImp.swift */; };
+		5D6F6BE82542DE4B71F0B5C1 /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6883AC6621E97C6D1AEE9B8A /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework */; };
+		E01BA84C13A35167E50055FE /* Pods_ProsrochkaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1271EFA2A0A6AA62C8FBAD49 /* Pods_ProsrochkaApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1271EFA2A0A6AA62C8FBAD49 /* Pods_ProsrochkaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProsrochkaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		159A22AED4BBBC8B32E57B06 /* Pods-ProsrochkaApp-ProsrochkaAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaApp-ProsrochkaAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ProsrochkaApp-ProsrochkaAppUITests/Pods-ProsrochkaApp-ProsrochkaAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		17DD96D6F34E7E5D725868DD /* Pods-ProsrochkaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ProsrochkaAppTests/Pods-ProsrochkaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3817CAD527E1E87C000B96EF /* ProsrochkaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProsrochkaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817CAD827E1E87C000B96EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3817CADA27E1E87C000B96EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,14 +76,24 @@
 		3817CB0C27E1EB7F000B96EF /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		3817CB0E27E22261000B96EF /* Extensions+VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+VC.swift"; sourceTree = "<group>"; };
 		3817CB1227E23B06000B96EF /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
+		3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateViewController.swift; sourceTree = "<group>"; };
+		3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadCollectionViewController.swift; sourceTree = "<group>"; };
+		3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadCollectionViewCell.swift; sourceTree = "<group>"; };
+		38E0998E27ECE1E800717639 /* ExpDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpDateHeader.swift; sourceTree = "<group>"; };
 		38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		38E2D3DC27E4844300EC3294 /* Overdue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Overdue.xcdatamodel; sourceTree = "<group>"; };
 		38E2D3DF27E486BC00EC3294 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
 		38E2D3E027E486BC00EC3294 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		38E2D3E327E4871100EC3294 /* Overdue v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Overdue v2.xcdatamodel"; sourceTree = "<group>"; };
-		38E2D3E527E487E300EC3294 /* AddEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewModel.swift; sourceTree = "<group>"; };
+		38E2D3E527E487E300EC3294 /* AddEditViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewModelImp.swift; sourceTree = "<group>"; };
 		38F143CF27E33375009402AF /* TagUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagUIView.swift; sourceTree = "<group>"; };
 		38F143D127E33464009402AF /* ProductListViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelImp.swift; sourceTree = "<group>"; };
+		57E1299BE75B4C85DDF73F8D /* Pods-ProsrochkaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaAppTests.release.xcconfig"; path = "Target Support Files/Pods-ProsrochkaAppTests/Pods-ProsrochkaAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		6883AC6621E97C6D1AEE9B8A /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProsrochkaApp_ProsrochkaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		690FDCE59526D0274B64B5EE /* Pods-ProsrochkaApp-ProsrochkaAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaApp-ProsrochkaAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProsrochkaApp-ProsrochkaAppUITests/Pods-ProsrochkaApp-ProsrochkaAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8040F4278BA4D134D5FD774C /* Pods_ProsrochkaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProsrochkaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A22744A540631C9EC4637D13 /* Pods-ProsrochkaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaApp.release.xcconfig"; path = "Target Support Files/Pods-ProsrochkaApp/Pods-ProsrochkaApp.release.xcconfig"; sourceTree = "<group>"; };
+		AFB22542519718790765BFFB /* Pods-ProsrochkaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaApp.debug.xcconfig"; path = "Target Support Files/Pods-ProsrochkaApp/Pods-ProsrochkaApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01BA84C13A35167E50055FE /* Pods_ProsrochkaApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04519F78D82C742A1C896DC6 /* Pods_ProsrochkaAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,12 +117,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6F6BE82542DE4B71F0B5C1 /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173B312D07A0735229965FBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1271EFA2A0A6AA62C8FBAD49 /* Pods_ProsrochkaApp.framework */,
+				6883AC6621E97C6D1AEE9B8A /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework */,
+				8040F4278BA4D134D5FD774C /* Pods_ProsrochkaAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3817CACC27E1E87C000B96EF = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +141,8 @@
 				3817CAEE27E1E880000B96EF /* ProsrochkaAppTests */,
 				3817CAF827E1E880000B96EF /* ProsrochkaAppUITests */,
 				3817CAD627E1E87C000B96EF /* Products */,
+				EE7F7BACED4F50D41FD56AEE /* Pods */,
+				173B312D07A0735229965FBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +208,8 @@
 				38F143CF27E33375009402AF /* TagUIView.swift */,
 				3817CB0A27E1EAD6000B96EF /* CustomTextField.swift */,
 				3817CB1227E23B06000B96EF /* ProductsCell.swift */,
+				3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */,
+				38E0998E27ECE1E800717639 /* ExpDateHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				38F143D127E33464009402AF /* ProductListViewModelImp.swift */,
-				38E2D3E527E487E300EC3294 /* AddEditViewModel.swift */,
+				38E2D3E527E487E300EC3294 /* AddEditViewModelImp.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,8 +237,23 @@
 			children = (
 				3817CADC27E1E87C000B96EF /* ProductListViewController.swift */,
 				3817CB0827E1E948000B96EF /* AddEditProductViewController.swift */,
+				3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */,
+				3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EE7F7BACED4F50D41FD56AEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFB22542519718790765BFFB /* Pods-ProsrochkaApp.debug.xcconfig */,
+				A22744A540631C9EC4637D13 /* Pods-ProsrochkaApp.release.xcconfig */,
+				690FDCE59526D0274B64B5EE /* Pods-ProsrochkaApp-ProsrochkaAppUITests.debug.xcconfig */,
+				159A22AED4BBBC8B32E57B06 /* Pods-ProsrochkaApp-ProsrochkaAppUITests.release.xcconfig */,
+				17DD96D6F34E7E5D725868DD /* Pods-ProsrochkaAppTests.debug.xcconfig */,
+				57E1299BE75B4C85DDF73F8D /* Pods-ProsrochkaAppTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +263,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3817CAFF27E1E880000B96EF /* Build configuration list for PBXNativeTarget "ProsrochkaApp" */;
 			buildPhases = (
+				E89D338935510C71FC0D3521 /* [CP] Check Pods Manifest.lock */,
 				3817CAD127E1E87C000B96EF /* Sources */,
 				3817CAD227E1E87C000B96EF /* Frameworks */,
 				3817CAD327E1E87C000B96EF /* Resources */,
@@ -228,6 +281,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3817CB0227E1E880000B96EF /* Build configuration list for PBXNativeTarget "ProsrochkaAppTests" */;
 			buildPhases = (
+				E1B59468286E24D6EAA20954 /* [CP] Check Pods Manifest.lock */,
 				3817CAE727E1E880000B96EF /* Sources */,
 				3817CAE827E1E880000B96EF /* Frameworks */,
 				3817CAE927E1E880000B96EF /* Resources */,
@@ -246,6 +300,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3817CB0527E1E880000B96EF /* Build configuration list for PBXNativeTarget "ProsrochkaAppUITests" */;
 			buildPhases = (
+				3CD4ED1682737E91C1F8A983 /* [CP] Check Pods Manifest.lock */,
 				3817CAF127E1E880000B96EF /* Sources */,
 				3817CAF227E1E880000B96EF /* Frameworks */,
 				3817CAF327E1E880000B96EF /* Resources */,
@@ -330,23 +385,96 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CD4ED1682737E91C1F8A983 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProsrochkaApp-ProsrochkaAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1B59468286E24D6EAA20954 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProsrochkaAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E89D338935510C71FC0D3521 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProsrochkaApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3817CAD127E1E87C000B96EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E0998F27ECE1E800717639 /* ExpDateHeader.swift in Sources */,
 				3817CB0927E1E948000B96EF /* AddEditProductViewController.swift in Sources */,
+				3839E8F927E9F263005C1C5A /* ExpirationDateViewController.swift in Sources */,
 				3817CB1327E23B06000B96EF /* ProductsCell.swift in Sources */,
 				3817CADD27E1E87C000B96EF /* ProductListViewController.swift in Sources */,
 				3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */,
 				3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */,
 				3817CAD927E1E87C000B96EF /* AppDelegate.swift in Sources */,
-				38E2D3E627E487E300EC3294 /* AddEditViewModel.swift in Sources */,
+				38E2D3E627E487E300EC3294 /* AddEditViewModelImp.swift in Sources */,
 				38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */,
 				38E2D3E127E486BC00EC3294 /* Product+CoreDataClass.swift in Sources */,
 				38F143D227E33464009402AF /* ProductListViewModelImp.swift in Sources */,
+				3839E8FD27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift in Sources */,
 				3817CADB27E1E87C000B96EF /* SceneDelegate.swift in Sources */,
 				38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */,
+				3839E8FB27E9F565005C1C5A /* NumpadCollectionViewController.swift in Sources */,
 				3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */,
 				38E2D3DD27E4844300EC3294 /* Overdue.xcdatamodeld in Sources */,
 				38F143D027E33375009402AF /* TagUIView.swift in Sources */,
@@ -523,6 +651,7 @@
 		};
 		3817CB0027E1E880000B96EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFB22542519718790765BFFB /* Pods-ProsrochkaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -551,6 +680,7 @@
 		};
 		3817CB0127E1E880000B96EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A22744A540631C9EC4637D13 /* Pods-ProsrochkaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -579,6 +709,7 @@
 		};
 		3817CB0327E1E880000B96EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17DD96D6F34E7E5D725868DD /* Pods-ProsrochkaAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -604,6 +735,7 @@
 		};
 		3817CB0427E1E880000B96EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E1299BE75B4C85DDF73F8D /* Pods-ProsrochkaAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -629,6 +761,7 @@
 		};
 		3817CB0627E1E880000B96EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 690FDCE59526D0274B64B5EE /* Pods-ProsrochkaApp-ProsrochkaAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -652,6 +785,7 @@
 		};
 		3817CB0727E1E880000B96EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 159A22AED4BBBC8B32E57B06 /* Pods-ProsrochkaApp-ProsrochkaAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

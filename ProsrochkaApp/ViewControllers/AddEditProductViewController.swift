@@ -5,14 +5,14 @@
 //  Created by Maximus on 16.03.2022.
 //
 
-import Foundation
-import UIKit
 
+import UIKit
+import Foundation
 
 class AddEditProductViewController: UIViewController {
     
     var coreDataStack: CoreDataStack?
-    var viewModel: AddEditViewModel?
+    var viewModel: AddEditViewModelImp?
     var reload: (() -> Void)?
     
     let imageView: UIImageView = {
@@ -22,23 +22,27 @@ class AddEditProductViewController: UIViewController {
     
     let nameTextField: CustomTextField = {
         $0.placeholder = "Название"
+        $0.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
         return $0
     }(CustomTextField(frame: .zero))
     
+ 
     let descriptionTextField: CustomTextField = {
         $0.placeholder = "Description"
+        $0.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
         return $0
     }(CustomTextField(frame: .zero))
     
     let quantityTextField: CustomTextField = {
         $0.placeholder = "Количество"
         $0.keyboardType = .numberPad
+        $0.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
         return $0
     }(CustomTextField(frame: .zero))
     
     let tagsTextField: CustomTextField = {
         $0.placeholder = "Тэги"
-        $0.keyboardType = .numberPad
+        $0.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
         return $0
     }(CustomTextField(frame: .zero))
     
@@ -46,6 +50,7 @@ class AddEditProductViewController: UIViewController {
         $0.setTitle("Расчитать срок годности", for: .normal)
         $0.backgroundColor = .blue
         $0.layer.cornerRadius = 16
+        $0.addTarget(self, action: #selector(handleCalculation), for: .touchUpInside)
         return $0
     }(UIButton(frame: .zero))
     
@@ -71,7 +76,7 @@ class AddEditProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AddEditViewModel(coreDataStack: coreDataStack!)
+        viewModel = AddEditViewModelImp(coreDataStack: coreDataStack!)
         view.backgroundColor = .white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -92,6 +97,11 @@ class AddEditProductViewController: UIViewController {
         view.addSubview(photoIcon)
         imageView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 250))
         photoIcon.anchor(top: imageView.topAnchor, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+    }
+    
+    @objc private func handleCalculation(_ sender: UIButton) {
+        let vc = ExpirationDateViewController()
+        present(vc, animated: true, completion: nil)
     }
     
     @objc private func imageChoiceActionSheet() {
@@ -115,8 +125,7 @@ class AddEditProductViewController: UIViewController {
         actionSheet.addAction(cancelAction)
         present(actionSheet, animated: true, completion: nil)
     }
-    
-    
+
     
     private func initTextFields() {
         
@@ -133,6 +142,18 @@ class AddEditProductViewController: UIViewController {
         tagsTextField.anchor(top: quantityTextField.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         calculatorButton.anchor(top: tagsTextField.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 100))
         saveButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 50))
+    }
+    
+    @objc fileprivate func handleTextChange(textField: UITextField) {
+        if textField == nameTextField {
+            viewModel?.nameProduct = textField.text
+        } else if textField == descriptionTextField {
+            viewModel?.productDescription = textField.text
+        } else if textField == quantityTextField {
+            viewModel?.productQuantity = Int("\(textField.text)")
+        } else if textField == tagsTextField {
+            viewModel?.tags = textField.text
+        }
     }
 }
 

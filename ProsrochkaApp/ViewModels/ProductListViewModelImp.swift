@@ -9,10 +9,10 @@ import Foundation
 import CoreData
 
 protocol ProductListViewModel {
-    
+    func getProducts()
 }
 
-class ProductListViewModelImp {
+class ProductListViewModelImp: ProductListViewModel {
     
     let coreDataStack = CoreDataStack(modelName: "Overdue")
     var listOfProduct: [Product] = []
@@ -23,14 +23,6 @@ class ProductListViewModelImp {
         let product = Product.fetchRequest()
         do {
             let data = try context.fetch(product)
-            if data.count != 0 {
-                if let arrayOfTags = data[0].tags {
-                    tagsArray.append(contentsOf: arrayOfTags) //  ??
-                }
-            } else {
-                tagsArray.append(contentsOf: ["Her", "Chto"]) // data[0].tags ??
-            }
-            
             listOfProduct.append(contentsOf: data)
         } catch let error as NSError {
             print("ERROR in productViewModel \(error)")
@@ -45,5 +37,16 @@ class ProductListViewModelImp {
             context.delete(i)
         }
         coreDataStack.saveContext()
+    }
+    
+    func convertData(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        let data = dateFormatter.string(from: date)
+        return data
+    }
+    
+    func calculateDaysUntilExp(_ from: Date, _ exp: Date) {
+        
     }
 }

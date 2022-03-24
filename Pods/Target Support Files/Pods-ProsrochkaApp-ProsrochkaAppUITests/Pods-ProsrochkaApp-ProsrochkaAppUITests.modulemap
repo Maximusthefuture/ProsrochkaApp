@@ -1,0 +1,6 @@
+framework module Pods_ProsrochkaApp_ProsrochkaAppUITests {
+  umbrella header "Pods-ProsrochkaApp-ProsrochkaAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
