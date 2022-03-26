@@ -10,10 +10,16 @@ import UIKit
 
 class ExpDateHeader: UICollectionReusableView {
     
+    let label = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
+        backgroundColor = .white
+        addSubview(label)
+        label.textAlignment = .center
+        label.text = "123"
+        label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        label.fillSuperview()
     }
     
     required init?(coder: NSCoder) {

@@ -15,7 +15,8 @@ class NumpadCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(label)
         label.textColor = .black
-        label.centerInSuperview()
+        label.textAlignment = .center
+        label.fillSuperview()
 
     }
     

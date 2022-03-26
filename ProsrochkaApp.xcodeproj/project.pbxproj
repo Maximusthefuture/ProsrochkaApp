@@ -25,6 +25,7 @@
 		3839E8F927E9F263005C1C5A /* ExpirationDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */; };
 		3839E8FB27E9F565005C1C5A /* NumpadCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */; };
 		3839E8FD27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */; };
+		38B1E24327EF8101003CED9F /* ExpirationDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E24227EF8101003CED9F /* ExpirationDateViewModel.swift */; };
 		38E0998F27ECE1E800717639 /* ExpDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E0998E27ECE1E800717639 /* ExpDateHeader.swift */; };
 		38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */; };
 		38E2D3DD27E4844300EC3294 /* Overdue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3DB27E4844200EC3294 /* Overdue.xcdatamodeld */; };
@@ -79,6 +80,7 @@
 		3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateViewController.swift; sourceTree = "<group>"; };
 		3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadCollectionViewController.swift; sourceTree = "<group>"; };
 		3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadCollectionViewCell.swift; sourceTree = "<group>"; };
+		38B1E24227EF8101003CED9F /* ExpirationDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateViewModel.swift; sourceTree = "<group>"; };
 		38E0998E27ECE1E800717639 /* ExpDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpDateHeader.swift; sourceTree = "<group>"; };
 		38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		38E2D3DC27E4844300EC3294 /* Overdue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Overdue.xcdatamodel; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				38F143D127E33464009402AF /* ProductListViewModelImp.swift */,
 				38E2D3E527E487E300EC3294 /* AddEditViewModelImp.swift */,
+				38B1E24227EF8101003CED9F /* ExpirationDateViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */,
 				3839E8FB27E9F565005C1C5A /* NumpadCollectionViewController.swift in Sources */,
 				3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */,
+				38B1E24327EF8101003CED9F /* ExpirationDateViewModel.swift in Sources */,
 				38E2D3DD27E4844300EC3294 /* Overdue.xcdatamodeld in Sources */,
 				38F143D027E33375009402AF /* TagUIView.swift in Sources */,
 			);

@@ -14,6 +14,8 @@ class ExpirationDateViewController: UIViewController {
     let dateSegmentControlPadding: CGFloat = 16
     let numPadCollectionView = NumpadCollectionViewController()
     
+    let viewModel = ExpirationDateViewModel()
+    
     let createDateTextField: CustomTextField = {
         $0.keyboardType = .numberPad
         $0.placeholder = "Дата изготовления (день-месяц-год)"
@@ -45,6 +47,8 @@ class ExpirationDateViewController: UIViewController {
         view.backgroundColor = .white
         initViews()
         createDateTextField.delegate = self
+        numPadCollectionView.dateDelegate = self
+       
 
     }
     
@@ -69,12 +73,24 @@ class ExpirationDateViewController: UIViewController {
 
 extension ExpirationDateViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(textField.text)
+       
         if textField.text!.count == 2 || textField.text!.count == 5 {
             if string != "" {
                 textField.text = textField.text! + "-"
             }
+           
+            
+        } else if textField.text?.count == 8 {
+            viewModel.calculateExpDate(date: textField.text ?? "")
         }
         return textField.text?.count == 8 ? false : true
     }
+}
+
+extension ExpirationDateViewController: DateHandlerDelegate {
+    func getExpDateNumbers(_ nums: String) {
+        viewModel.changingDate?(nums)
+    }
+    
+    
 }
