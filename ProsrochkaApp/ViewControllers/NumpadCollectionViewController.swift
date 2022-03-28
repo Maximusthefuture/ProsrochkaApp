@@ -18,6 +18,7 @@ class NumpadCollectionViewController: UICollectionViewController {
     
     private let headerId = "headerId"
     weak var dateDelegate: DateHandlerDelegate?
+    var dateClosure: ((String) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -46,7 +47,10 @@ class NumpadCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! ExpDateHeader
+       
         header.label.text = displayData
+        
+        
         return header
     }
     
@@ -64,14 +68,17 @@ class NumpadCollectionViewController: UICollectionViewController {
         let num = numArray[indexPath.row]
         cell.label.text = num
         cell.backgroundColor = .red
-        
-        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        displayData += numArray[indexPath.row]
+//        displayData += numArray[indexPath.row]
         dateDelegate?.getExpDateNumbers(numArray[indexPath.row])
+//        dateClosure = { date in
+//            print("DATE IS", date)
+//            self.displayData = date
+//        }
+        dateClosure?("fsdf®sdf")
         collectionView.reloadData()
         print(numArray[indexPath.row])
     }

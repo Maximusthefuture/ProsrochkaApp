@@ -41,9 +41,6 @@ class ProductsCell: UITableViewCell {
     let roundedView: UIView =  {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 16
-//        $0.backgroundColor = .red
-       
-        
         return $0
     }(UIView(frame: .zero))
     
@@ -68,8 +65,14 @@ class ProductsCell: UITableViewCell {
         }
         name.text = product?.name
         expDate.text = "До: \((viewModel?.convertData(date: product?.expiredDate ?? Date()))!)"
-        toDate.text = "Осталось 5 из 14 дней"
-        
+        let remainDaysFromToday = viewModel!.calculateTotalDaysUntilExp(Date(), product?.expiredDate)
+        if remainDaysFromToday.starts(with: "-") {
+            let days = remainDaysFromToday.dropFirst()
+            toDate.text = "Просрочено на \(String(days)) дней"
+        } else {
+            toDate.text = "Осталось \(remainDaysFromToday)  из \(viewModel!.calculateTotalDaysUntilExp(product?.createdDate, product?.expiredDate)) дней"
+            
+        }
     }
     
    

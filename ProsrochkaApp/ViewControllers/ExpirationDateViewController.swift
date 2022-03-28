@@ -11,32 +11,34 @@ import UIKit
 
 class ExpirationDateViewController: UIViewController {
     
-    let dateSegmentControlPadding: CGFloat = 16
-    let numPadCollectionView = NumpadCollectionViewController()
+    private let dateSegmentControlPadding: CGFloat = 16
+    private let numPadCollectionView = NumpadCollectionViewController()
+    var getDate:((Date?, Date?) -> Void)?
+    var dateClosure:((String) -> Void)?
     
-    let viewModel = ExpirationDateViewModel()
+    private let viewModel = ExpirationDateViewModel()
     
-    let createDateTextField: CustomTextField = {
+    private let createDateTextField: CustomTextField = {
         $0.keyboardType = .numberPad
         $0.placeholder = "Дата изготовления (день-месяц-год)"
         return $0
     }(CustomTextField(frame: .zero))
     
-    let expDateLabel: UILabel = {
+    private let expDateLabel: UILabel = {
         $0.textColor = .black
         $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return $0
     }(UILabel(frame: .zero))
     
-    let addItemButton: UIButton = {
+    private let addItemButton: UIButton = {
         $0.backgroundColor = .blue
         $0.layer.cornerRadius = 16
         $0.setTitle("Добавить", for: .normal)
+        $0.addTarget(self, action: #selector(handleAddItemButton), for: .touchUpInside)
         return $0
     }(UIButton(frame: .zero))
     
-    let dateSegmentControl: UISegmentedControl = {
-        
+    private let dateSegmentControl: UISegmentedControl = {
         $0.addTarget(self, action: #selector(handleDateSegmentControl), for: .valueChanged)
         $0.selectedSegmentIndex = 0
         return $0
@@ -48,16 +50,29 @@ class ExpirationDateViewController: UIViewController {
         initViews()
         createDateTextField.delegate = self
         numPadCollectionView.dateDelegate = self
-       
-
+        numPadCollectionView.dateClosure = { date in
+            self.numPadCollectionView.displayData = self.viewModel.formattedFinalDate() ?? ""
+        }
+    }
+    
+    @objc private func handleAddItemButton(_ sender: UIButton) {
+        dismiss(animated: true)
+        getDate?(viewModel.createdDate, viewModel.finalDate)
     }
     
     @objc private func handleDateSegmentControl(_ sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
+        let data: DateChange?
+        switch sender.selectedSegmentIndex {
+        case 0: data = .day
+        case 1: data = .month
+        case 2: data = .year
+        default:
+            data = .day
+        }
+        viewModel.data = data
     }
     
-    
-    
+   
     private func initViews() {
         view.addSubview(createDateTextField)
         view.addSubview(dateSegmentControl)
@@ -78,8 +93,6 @@ extension ExpirationDateViewController: UITextFieldDelegate {
             if string != "" {
                 textField.text = textField.text! + "-"
             }
-           
-            
         } else if textField.text?.count == 8 {
             viewModel.calculateExpDate(date: textField.text ?? "")
         }
@@ -91,6 +104,4 @@ extension ExpirationDateViewController: DateHandlerDelegate {
     func getExpDateNumbers(_ nums: String) {
         viewModel.changingDate?(nums)
     }
-    
-    
 }

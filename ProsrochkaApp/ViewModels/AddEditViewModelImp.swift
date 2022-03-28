@@ -22,6 +22,8 @@ class AddEditViewModelImp {
     var productDescription: String?
     var productQuantity: Int?
     var tags: String?
+    var expiredDate: Date?
+    var createdDate: Date?
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
@@ -33,12 +35,13 @@ class AddEditViewModelImp {
         product.name = nameProduct
         product.productDescription = productDescription
         product.quantity = Int16(productQuantity ?? 0)
-        product.expiredDate = Date()
+        product.expiredDate = expiredDate
         product.image = imageData
         product.tags = transformTagsIntoArray(text: tags)
+        product.createdDate = createdDate
         coreDataStack.saveContext()
     }
-    
+ 
     private func transformTagsIntoArray(text: String?) -> [String] {
         var array = [String]()
         let elements = text?.components(separatedBy: " ")

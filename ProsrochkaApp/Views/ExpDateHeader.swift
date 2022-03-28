@@ -17,7 +17,6 @@ class ExpDateHeader: UICollectionReusableView {
         backgroundColor = .white
         addSubview(label)
         label.textAlignment = .center
-        label.text = "123"
         label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         label.fillSuperview()
     }

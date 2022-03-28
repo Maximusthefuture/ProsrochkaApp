@@ -14,27 +14,37 @@ enum DateChange {
     case year
 }
 
-
 class ExpirationDateViewModel {
     
-    var createDate: ((String?) -> Void)?
     var changingDate: ((String?) -> Void)?
-    var dateChangeEnum: ((DateChange) -> Void)?
+    var date: String? {
+        didSet {
+            
+        }
+    }
+    var finalDate: Date?
+    var createdDate: Date?
+    var data: DateChange?
     
-    func calculateExpDate(date: String) {
+    
+    func formattedFinalDate() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        return dateFormatter.string(from: finalDate ?? Date())
+    }
+    
+    func calculateExpDate(date: String?) {
         let calendar = Calendar.current
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yy"
-        
-        
-        let dt = dateFormatter.date(from: date)
+        let dt = dateFormatter.date(from: date ?? "")
         changingDate = { value in
-            let finalDate = calendar.date(byAdding: self.getDate(dateEnum: DateChange.day), value: Int(value ?? "")!, to: dt!)
-            print("final date", finalDate)
+            self.createdDate = dt
+            self.finalDate = calendar.date(byAdding: self.getDate(dateEnum: self.data ?? DateChange.day), value: Int(value ?? "")!, to: dt ?? Date())
         }
     }
     
-    func getDate(dateEnum: DateChange) -> Calendar.Component{
+    func getDate(dateEnum: DateChange) -> Calendar.Component {
         var componentsEnum = Calendar.Component.day
         switch dateEnum {
         case .day:

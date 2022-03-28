@@ -34,6 +34,7 @@ class ProductListViewController: UIViewController {
         initTableView()
         initViews()
         viewModel.getProducts()
+        viewModel.calculateTotalDaysUntilExp(viewModel.listOfProduct.last!.createdDate, viewModel.listOfProduct.last!.expiredDate)
 //        viewModel.deleteAll()
     }
     
@@ -57,9 +58,9 @@ class ProductListViewController: UIViewController {
         let vc = AddEditProductViewController()
         //MARK: Move to DI
         vc.coreDataStack = viewModel.coreDataStack
-        vc.reload = { [weak self] in
+        vc.reload = {
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
         navigationController?.pushViewController(vc, animated: true)

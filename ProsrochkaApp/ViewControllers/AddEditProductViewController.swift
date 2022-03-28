@@ -99,8 +99,14 @@ class AddEditProductViewController: UIViewController {
         photoIcon.anchor(top: imageView.topAnchor, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
     }
     
+    
     @objc private func handleCalculation(_ sender: UIButton) {
         let vc = ExpirationDateViewController()
+        vc.getDate = { [weak self] createdDate, expDate in
+            self?.nameTextField.text = "\(expDate)"
+            self?.viewModel?.expiredDate = expDate
+            self?.viewModel?.createdDate = createdDate
+        }
         present(vc, animated: true, completion: nil)
     }
     

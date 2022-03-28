@@ -46,7 +46,40 @@ class ProductListViewModelImp: ProductListViewModel {
         return data
     }
     
-    func calculateDaysUntilExp(_ from: Date, _ exp: Date) {
+    
+  
+    
+    func calculateTotalDaysUntilExp(_ from: Date?, _ exp: Date?) -> String {
+        let calendar = Calendar.current
+        let days = calendar.numberOfDaysBeetween(from ?? Date(), and: exp ?? Date())
+        return  "\(days)"
+//        let formatter = DateComponentsFormatter()
+//        formatter.unitsStyle = .full
+//        formatter.allowedUnits = [.year, .month, .day]
+//        let interval = from?.timeIntervalSince(exp!)
+//        if let interval = interval {
+//            let finalDate = formatter.string(from: interval)
+//            //y, mo, w, d
+////            print("INTERVAL", finalDate)
+//            if let splittedInterval = finalDate?.components(separatedBy: " ") {
+//                print("splitted intervals", splittedInterval)
+//                for i in splittedInterval {
+//
+////                    print("INTERVAL ARRAY", i)
+//                }
+//
+//                return finalDate!
+//            }
+//
+//        }
+//        return ""
         
+    }
+}
+
+extension Calendar {
+    func numberOfDaysBeetween(_ from: Date, and to: Date) -> Int {
+        let numbersOfDays = dateComponents([.day], from: from, to: to)
+        return numbersOfDays.day!
     }
 }
