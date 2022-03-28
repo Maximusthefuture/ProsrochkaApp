@@ -53,27 +53,6 @@ class ProductListViewModelImp: ProductListViewModel {
         let calendar = Calendar.current
         let days = calendar.numberOfDaysBeetween(from ?? Date(), and: exp ?? Date())
         return  "\(days)"
-//        let formatter = DateComponentsFormatter()
-//        formatter.unitsStyle = .full
-//        formatter.allowedUnits = [.year, .month, .day]
-//        let interval = from?.timeIntervalSince(exp!)
-//        if let interval = interval {
-//            let finalDate = formatter.string(from: interval)
-//            //y, mo, w, d
-////            print("INTERVAL", finalDate)
-//            if let splittedInterval = finalDate?.components(separatedBy: " ") {
-//                print("splitted intervals", splittedInterval)
-//                for i in splittedInterval {
-//
-////                    print("INTERVAL ARRAY", i)
-//                }
-//
-//                return finalDate!
-//            }
-//
-//        }
-//        return ""
-        
     }
 }
 

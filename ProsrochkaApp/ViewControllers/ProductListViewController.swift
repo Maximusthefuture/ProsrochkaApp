@@ -29,12 +29,9 @@ class ProductListViewController: UIViewController {
             // Fallback on earlier versions
         }
         view.backgroundColor = #colorLiteral(red: 0.9682769179, green: 0.9684478641, blue: 1, alpha: 1)
-        
         initTableView()
         initViews()
         viewModel.getProducts()
-        viewModel.calculateTotalDaysUntilExp(viewModel.listOfProduct.last!.createdDate, viewModel.listOfProduct.last!.expiredDate)
-//        viewModel.deleteAll()
     }
     
     private func initTableView() {
@@ -58,13 +55,13 @@ class ProductListViewController: UIViewController {
         //MARK: Move to DI
         vc.coreDataStack = viewModel.coreDataStack
         vc.reload = {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.viewModel.getProducts()
+            self.tableView.reloadData()
         }
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 
 extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
