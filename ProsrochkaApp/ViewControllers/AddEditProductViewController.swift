@@ -14,6 +14,7 @@ class AddEditProductViewController: UIViewController {
     var coreDataStack: CoreDataStack?
     var viewModel: AddEditViewModelImp?
     var reload: (() -> Void)?
+    var productItem: Product?
     
     let imageView: UIImageView = {
         $0.backgroundColor = .systemGray
@@ -84,12 +85,30 @@ class AddEditProductViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         initImageView()
         initTextFields()
+        initProduct()
     }
     
     @objc private func handleSaveButton(_ sender: UIButton) {
         viewModel?.saveData()
-        navigationController?.popViewController(animated: true)
         reload?()
+        navigationController?.popViewController(animated: true)
+       
+    }
+    
+    private func initProduct() {
+        nameTextField.text = productItem?.name
+        descriptionTextField.text = productItem?.productDescription
+        if let quantity = productItem?.quantity,
+            let items = productItem?.tags {
+            quantityTextField.text = "\(Int(quantity))"
+            for i in items {
+                tagsTextField.text = i
+            }
+        }
+        
+        if let image = productItem?.image {
+            imageView.image = UIImage(data: image)
+        }
     }
     
     private func initImageView() {
@@ -99,11 +118,9 @@ class AddEditProductViewController: UIViewController {
         photoIcon.anchor(top: imageView.topAnchor, leading: imageView.leadingAnchor, bottom: imageView.bottomAnchor, trailing: imageView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
     }
     
-    
     @objc private func handleCalculation(_ sender: UIButton) {
         let vc = ExpirationDateViewController()
         vc.getDate = { [weak self] createdDate, expDate in
-            self?.nameTextField.text = "\(expDate)"
             self?.viewModel?.expiredDate = expDate
             self?.viewModel?.createdDate = createdDate
         }
@@ -156,7 +173,10 @@ class AddEditProductViewController: UIViewController {
         } else if textField == descriptionTextField {
             viewModel?.productDescription = textField.text
         } else if textField == quantityTextField {
-            viewModel?.productQuantity = Int("\(textField.text)")
+            if let quantityText = textField.text {
+                viewModel?.productQuantity = Int16(quantityText)
+                print(quantityText)
+            }
         } else if textField == tagsTextField {
             viewModel?.tags = textField.text
         }

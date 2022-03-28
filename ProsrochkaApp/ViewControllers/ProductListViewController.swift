@@ -23,7 +23,6 @@ class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.backgroundColor = .yellow
         if #available(iOS 13.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "circles.hexagonpath.fill"), style: .plain, target: self, action: nil)
         } else {
@@ -89,6 +88,7 @@ extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = AddEditProductViewController()
         vc.coreDataStack = viewModel.coreDataStack
+        vc.productItem = viewModel.listOfProduct[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }

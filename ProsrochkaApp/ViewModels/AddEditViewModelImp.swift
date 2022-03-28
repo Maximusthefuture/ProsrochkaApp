@@ -20,7 +20,7 @@ class AddEditViewModelImp {
     var imageData: Data?
     var nameProduct: String?
     var productDescription: String?
-    var productQuantity: Int?
+    var productQuantity: Int16?
     var tags: String?
     var expiredDate: Date?
     var createdDate: Date?
@@ -34,7 +34,7 @@ class AddEditViewModelImp {
         let product = Product(context: coreDataStack.managedContext)
         product.name = nameProduct
         product.productDescription = productDescription
-        product.quantity = Int16(productQuantity ?? 0)
+        product.quantity = productQuantity ?? 0
         product.expiredDate = expiredDate
         product.image = imageData
         product.tags = transformTagsIntoArray(text: tags)

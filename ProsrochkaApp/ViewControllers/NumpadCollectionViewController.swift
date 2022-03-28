@@ -72,13 +72,8 @@ class NumpadCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        displayData += numArray[indexPath.row]
         dateDelegate?.getExpDateNumbers(numArray[indexPath.row])
-//        dateClosure = { date in
-//            print("DATE IS", date)
-//            self.displayData = date
-//        }
-        dateClosure?("fsdf®sdf")
+        dateClosure?("")
         collectionView.reloadData()
         print(numArray[indexPath.row])
     }
