@@ -23,7 +23,7 @@ class ProductListViewModelImp: ProductListViewModel {
         let product = Product.fetchRequest()
         do {
             let data = try context.fetch(product)
-            listOfProduct.append(contentsOf: data)
+            listOfProduct = data
         } catch let error as NSError {
             print("ERROR in productViewModel \(error)")
         }
@@ -46,9 +46,7 @@ class ProductListViewModelImp: ProductListViewModel {
         return data
     }
     
-    
   
-    
     func calculateTotalDaysUntilExp(_ from: Date?, _ exp: Date?) -> String {
         let calendar = Calendar.current
         let days = calendar.numberOfDaysBeetween(from ?? Date(), and: exp ?? Date())
