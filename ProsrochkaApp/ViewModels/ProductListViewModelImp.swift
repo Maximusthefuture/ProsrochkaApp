@@ -16,7 +16,6 @@ class ProductListViewModelImp: ProductListViewModel {
     
     let coreDataStack = CoreDataStack(modelName: "Overdue")
     var listOfProduct: [Product] = []
-    var tagsArray: [String] = []
     
     func getProducts()  {
         let context = coreDataStack.managedContext
@@ -30,11 +29,6 @@ class ProductListViewModelImp: ProductListViewModel {
         }
     }
     
-    func getPictureObject() {
-       
-        
-    }
-    
     func deleteAll() {
         let context = coreDataStack.managedContext
         let product = Product.fetchRequest()
@@ -42,6 +36,14 @@ class ProductListViewModelImp: ProductListViewModel {
         for i in data {
             context.delete(i)
         }
+        coreDataStack.saveContext()
+    }
+    
+    func deleteItem(at index: Int) {
+        let context = coreDataStack.managedContext
+        let product = Product.fetchRequest()
+        var data = try! context.fetch(product)
+        data.remove(at: index)
         coreDataStack.saveContext()
     }
     

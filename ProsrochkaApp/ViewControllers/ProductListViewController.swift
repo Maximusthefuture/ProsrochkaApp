@@ -63,9 +63,6 @@ class ProductListViewController: UIViewController {
     }
 }
 
-
-
-
 extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: ProductsCell.self), for: indexPath) as! ProductsCell
@@ -91,6 +88,8 @@ extension ProductListViewController: UITableViewDataSource {
         vc.productItem = viewModel.listOfProduct[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+
 }
 
 
@@ -98,6 +97,26 @@ extension ProductListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction =  UIContextualAction(style: .destructive, title: nil) { [unowned self] (action, swipeButtonView, completion) in
+//            guard let fetchRequest = self.fetchRequest  else { return }
+//            self.dayTaskViewModel?.deleteItem(indexPath: indexPath.row, fetchRequest: fetchRequest)
+            self.viewModel.deleteItem(at: indexPath.row)
+            
+            print("DELETE")
+//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        let largeFont = UIFont.systemFont(ofSize: 60)
+//        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+//        let image = UIImage(systemName: "trash", withConfiguration: configuration)?.withTintColor(.red, renderingMode: .alwaysOriginal)
+//        deleteAction.image = image
+        deleteAction.backgroundColor = .white
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+
 }
 
 

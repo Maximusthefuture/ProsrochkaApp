@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import VisionKit
+import Vision
 
 class AddEditProductViewController: UIViewController {
     
@@ -111,6 +113,37 @@ class AddEditProductViewController: UIViewController {
         }
     }
     
+    @available(iOS 13.0, *)
+    func textRecognition(image: UIImage?) {
+        guard let cgImage = image?.cgImage else { return }
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        let request = VNRecognizeTextRequest { request, error in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+            
+            let recognizedStrings = observations.compactMap({ observation in
+                return observation.topCandidates(1).first?.string
+            })
+            print("STRING IS: ",recognizedStrings)
+            DispatchQueue.main.async {
+                self.nameTextField.text = recognizedStrings.first
+            }
+        }
+       
+        do {
+            if #available(iOS 15.0, *) {
+                let lang = try request.supportedRecognitionLanguages()
+                print("LANG: ", lang)
+            } else {
+                // Fallback on earlier versions
+            }
+            try handler.perform([request])
+        } catch {
+            print("Error in textRecognition", error)
+        }
+        
+        
+    }
+    
     @objc func handleKeyboardShow(notification: Notification) {
         guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyBoardFrame = value.cgRectValue
@@ -207,6 +240,8 @@ class AddEditProductViewController: UIViewController {
     @objc fileprivate func handleTextChange(textField: UITextField) {
         if textField == nameTextField {
             viewModel?.nameProduct = textField.text
+           
+            
         } else if textField == descriptionTextField {
             viewModel?.productDescription = textField.text
         } else if textField == quantityTextField {
@@ -225,10 +260,14 @@ extension AddEditProductViewController: UIImagePickerControllerDelegate, UINavig
         let image = info[.originalImage] as? UIImage
         imageView.image = image?.withRenderingMode(.alwaysOriginal)
         viewModel?.imageData = imageView.image?.pngData()
+        if #available(iOS 13, *) {
+            textRecognition(image: UIImage(data: viewModel?.imageData ?? Data()))
+        }
         dismiss(animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+       
         dismiss(animated: true)
     }
 }

@@ -67,7 +67,9 @@ class AddEditViewModelImp {
     private func transformTagsIntoArray(text: String?) -> [String] {
         var array = [String]()
         let elements = text?.components(separatedBy: " ")
-        array.append(contentsOf: elements!)
+        if let elements = elements {
+            array.append(contentsOf: elements)
+        }
         return array
     }
 }

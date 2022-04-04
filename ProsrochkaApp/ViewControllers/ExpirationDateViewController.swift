@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 
+
 class ExpirationDateViewController: UIViewController {
     
     private let dateSegmentControlPadding: CGFloat = 16
@@ -61,7 +62,10 @@ class ExpirationDateViewController: UIViewController {
         getDate?(viewModel.createdDate, viewModel.finalDate)
     }
     
-    func setupToolbar() {
+    
+  
+    
+    private func setupToolbar() {
         let bar = UIToolbar()
         let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(hideKeyBoard))
         bar.items = [done]
@@ -69,9 +73,7 @@ class ExpirationDateViewController: UIViewController {
         createDateTextField.inputAccessoryView = bar
        
     }
-    @objc func hideKeyBoard() {
-        print("HIDING")
-//        view.resignFirstResponder()
+    @objc private func hideKeyBoard() {
         self.view.endEditing(true)
     }
     

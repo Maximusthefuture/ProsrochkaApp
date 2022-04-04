@@ -71,6 +71,9 @@ class ProductsCell: UITableViewCell {
             toDate.text = "Просрочено на \(String(days)) дней"
         } else {
             toDate.text = "Осталось \(remainDaysFromToday)  из \(viewModel!.calculateTotalDaysUntilExp(product?.createdDate, product?.expiredDate)) дней"
+            if Int(remainDaysFromToday)! < 4 {
+                roundedView.backgroundColor = .red
+            }
             
         }
     }
@@ -102,28 +105,7 @@ class ProductsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        roundedView.layer.masksToBounds = true
-       
-        //        roundedView.layer.shadowColor = UIColor.black.cgColor
-//                roundedView.layer.masksToBounds = true
-//        
-//        roundedView.layer.cornerRadius = 8
-//        roundedView.layer.shadowOffset = CGSize(width: 0, height: 3)
-//        roundedView.layer.shadowRadius = 3
-//        roundedView.layer.shadowOpacity = 0.3
-////        roundedView.layer.masksToBounds = false
-//        roundedView.layer.shadowColor = UIColor.black.cgColor
-//        roundedView.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,
-//                                             byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 8, height:
-//                                                                                                    8)).cgPath
-//        
-//        roundedView.layer.shouldRasterize = true
-//        roundedView.layer.rasterizationScale = UIScreen.main.scale
-        
-//        roundedView.layer.shouldRasterize = true
-    }
+
     
     override func prepareForReuse() {
         super.prepareForReuse()
