@@ -32,6 +32,7 @@ class ProductListViewController: UIViewController {
         initTableView()
         initViews()
         viewModel.getProducts()
+//        viewModel.deleteAll()
     }
     
     private func initTableView() {
@@ -63,12 +64,14 @@ class ProductListViewController: UIViewController {
 }
 
 
+
+
 extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: ProductsCell.self), for: indexPath) as! ProductsCell
         let product = viewModel.listOfProduct[indexPath.row]
        
-        cell.productPicture.image = UIImage(data: product.image ?? Data())
+        cell.productPicture.image = UIImage(data: product.imageThumbnail ?? Data())
         
         cell.configure(viewModel: viewModel, indexPath: indexPath)
         return cell

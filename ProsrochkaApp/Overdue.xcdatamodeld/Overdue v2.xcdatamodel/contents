@@ -3,13 +3,19 @@
     <entity name="Product" representedClassName="Product" syncable="YES">
         <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="expiredDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="imageThumbnail" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="productDescription" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProductPicture" inverseName="product" inverseEntity="ProductPicture"/>
+    </entity>
+    <entity name="ProductPicture" representedClassName="ProductPicture" syncable="YES">
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="image" inverseEntity="Product"/>
     </entity>
     <elements>
-        <element name="Product" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Product" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="ProductPicture" positionX="-272.5862426757812" positionY="-32.31687927246094" width="128" height="73"/>
     </elements>
 </model>

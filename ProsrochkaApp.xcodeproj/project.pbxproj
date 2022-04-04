@@ -25,6 +25,8 @@
 		3839E8F927E9F263005C1C5A /* ExpirationDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */; };
 		3839E8FB27E9F565005C1C5A /* NumpadCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */; };
 		3839E8FD27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */; };
+		38771B7827FB2E62005A4662 /* ProductPicture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38771B7627FB2E62005A4662 /* ProductPicture+CoreDataClass.swift */; };
+		38771B7927FB2E62005A4662 /* ProductPicture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38771B7727FB2E62005A4662 /* ProductPicture+CoreDataProperties.swift */; };
 		38B1E24327EF8101003CED9F /* ExpirationDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1E24227EF8101003CED9F /* ExpirationDateViewModel.swift */; };
 		38E0998F27ECE1E800717639 /* ExpDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E0998E27ECE1E800717639 /* ExpDateHeader.swift */; };
 		38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */; };
@@ -80,6 +82,8 @@
 		3839E8F827E9F263005C1C5A /* ExpirationDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateViewController.swift; sourceTree = "<group>"; };
 		3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadCollectionViewController.swift; sourceTree = "<group>"; };
 		3839E8FC27E9F7BB005C1C5A /* NumpadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadCollectionViewCell.swift; sourceTree = "<group>"; };
+		38771B7627FB2E62005A4662 /* ProductPicture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductPicture+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		38771B7727FB2E62005A4662 /* ProductPicture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductPicture+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		38B1E24227EF8101003CED9F /* ExpirationDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateViewModel.swift; sourceTree = "<group>"; };
 		38E0998E27ECE1E800717639 /* ExpDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpDateHeader.swift; sourceTree = "<group>"; };
 		38E2D3D927E475AA00EC3294 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		38E2D3DE27E4869C00EC3294 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				38771B7627FB2E62005A4662 /* ProductPicture+CoreDataClass.swift */,
+				38771B7727FB2E62005A4662 /* ProductPicture+CoreDataProperties.swift */,
 				38E2D3DF27E486BC00EC3294 /* Product+CoreDataClass.swift */,
 				38E2D3E027E486BC00EC3294 /* Product+CoreDataProperties.swift */,
 			);
@@ -462,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38771B7927FB2E62005A4662 /* ProductPicture+CoreDataProperties.swift in Sources */,
 				38E0998F27ECE1E800717639 /* ExpDateHeader.swift in Sources */,
 				3817CB0927E1E948000B96EF /* AddEditProductViewController.swift in Sources */,
 				3839E8F927E9F263005C1C5A /* ExpirationDateViewController.swift in Sources */,
@@ -469,6 +476,7 @@
 				3817CADD27E1E87C000B96EF /* ProductListViewController.swift in Sources */,
 				3817CB0F27E22261000B96EF /* Extensions+VC.swift in Sources */,
 				3817CB0D27E1EB7F000B96EF /* Extensions+UIView.swift in Sources */,
+				38771B7827FB2E62005A4662 /* ProductPicture+CoreDataClass.swift in Sources */,
 				3817CAD927E1E87C000B96EF /* AppDelegate.swift in Sources */,
 				38E2D3E627E487E300EC3294 /* AddEditViewModelImp.swift in Sources */,
 				38E2D3DA27E475AA00EC3294 /* CoreDataStack.swift in Sources */,

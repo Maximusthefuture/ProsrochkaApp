@@ -21,12 +21,18 @@ class ProductListViewModelImp: ProductListViewModel {
     func getProducts()  {
         let context = coreDataStack.managedContext
         let product = Product.fetchRequest()
+        
         do {
             let data = try context.fetch(product)
             listOfProduct = data
         } catch let error as NSError {
             print("ERROR in productViewModel \(error)")
         }
+    }
+    
+    func getPictureObject() {
+       
+        
     }
     
     func deleteAll() {

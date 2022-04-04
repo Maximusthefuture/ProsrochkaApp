@@ -53,11 +53,26 @@ class ExpirationDateViewController: UIViewController {
         numPadCollectionView.dateClosure = { date in
             self.numPadCollectionView.displayData = self.viewModel.formattedFinalDate() ?? ""
         }
+        setupToolbar()
     }
     
     @objc private func handleAddItemButton(_ sender: UIButton) {
         dismiss(animated: true)
         getDate?(viewModel.createdDate, viewModel.finalDate)
+    }
+    
+    func setupToolbar() {
+        let bar = UIToolbar()
+        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(hideKeyBoard))
+        bar.items = [done]
+        bar.sizeToFit()
+        createDateTextField.inputAccessoryView = bar
+       
+    }
+    @objc func hideKeyBoard() {
+        print("HIDING")
+//        view.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     @objc private func handleDateSegmentControl(_ sender: UISegmentedControl) {

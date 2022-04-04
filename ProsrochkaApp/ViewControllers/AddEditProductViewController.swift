@@ -83,9 +83,46 @@ class AddEditProductViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
+        setupTapGesture()
+        view.resignFirstResponder()
         initImageView()
         initTextFields()
         initProduct()
+        setupNotificationObserver()
+       
+    }
+   
+    fileprivate func setupTapGesture() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
+    }
+    
+    @objc func handleTapGesture(tapGesure: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    private func setupNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc fileprivate func handleKeyboardHide() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut) {
+            self.view.transform = .identity
+        }
+    }
+    
+    @objc func handleKeyboardShow(notification: Notification) {
+        guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyBoardFrame = value.cgRectValue
+        let bottomSpace = view.frame.height - calculatorButton.frame.origin.y - calculatorButton.frame.height
+        let difference =  keyBoardFrame.height - bottomSpace
+        self.view.transform = CGAffineTransform(translationX: 0, y: -difference - 8)
+        print("OBSERVERL: \(keyBoardFrame)")
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc private func handleSaveButton(_ sender: UIButton) {
@@ -106,7 +143,7 @@ class AddEditProductViewController: UIViewController {
             }
         }
         
-        if let image = productItem?.image {
+        if let image = productItem?.image?.picture {
             imageView.image = UIImage(data: image)
         }
     }
