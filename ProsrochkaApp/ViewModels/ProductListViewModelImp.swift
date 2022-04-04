@@ -42,8 +42,8 @@ class ProductListViewModelImp: ProductListViewModel {
     func deleteItem(at index: Int) {
         let context = coreDataStack.managedContext
         let product = Product.fetchRequest()
-        var data = try! context.fetch(product)
-        data.remove(at: index)
+        let data = try! context.fetch(product)
+        coreDataStack.managedContext.delete(data[index])
         coreDataStack.saveContext()
     }
     

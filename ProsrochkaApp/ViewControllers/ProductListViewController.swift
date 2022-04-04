@@ -100,18 +100,12 @@ extension ProductListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction =  UIContextualAction(style: .destructive, title: nil) { [unowned self] (action, swipeButtonView, completion) in
-//            guard let fetchRequest = self.fetchRequest  else { return }
-//            self.dayTaskViewModel?.deleteItem(indexPath: indexPath.row, fetchRequest: fetchRequest)
             self.viewModel.deleteItem(at: indexPath.row)
-            
-            print("DELETE")
-//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.viewModel.getProducts()
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }
         let largeFont = UIFont.systemFont(ofSize: 60)
-//        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-//        let image = UIImage(systemName: "trash", withConfiguration: configuration)?.withTintColor(.red, renderingMode: .alwaysOriginal)
-//        deleteAction.image = image
         deleteAction.backgroundColor = .white
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
