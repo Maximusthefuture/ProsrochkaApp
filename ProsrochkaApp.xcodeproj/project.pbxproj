@@ -34,6 +34,7 @@
 		38E2D3E127E486BC00EC3294 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3DF27E486BC00EC3294 /* Product+CoreDataClass.swift */; };
 		38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E027E486BC00EC3294 /* Product+CoreDataProperties.swift */; };
 		38E2D3E627E487E300EC3294 /* AddEditViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E2D3E527E487E300EC3294 /* AddEditViewModelImp.swift */; };
+		38E488B127FC2D990013B6C1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E488B027FC2D990013B6C1 /* NotificationService.swift */; };
 		38F143D027E33375009402AF /* TagUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143CF27E33375009402AF /* TagUIView.swift */; };
 		38F143D227E33464009402AF /* ProductListViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F143D127E33464009402AF /* ProductListViewModelImp.swift */; };
 		5D6F6BE82542DE4B71F0B5C1 /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6883AC6621E97C6D1AEE9B8A /* Pods_ProsrochkaApp_ProsrochkaAppUITests.framework */; };
@@ -92,6 +93,7 @@
 		38E2D3E027E486BC00EC3294 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		38E2D3E327E4871100EC3294 /* Overdue v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Overdue v2.xcdatamodel"; sourceTree = "<group>"; };
 		38E2D3E527E487E300EC3294 /* AddEditViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewModelImp.swift; sourceTree = "<group>"; };
+		38E488B027FC2D990013B6C1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		38F143CF27E33375009402AF /* TagUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagUIView.swift; sourceTree = "<group>"; };
 		38F143D127E33464009402AF /* ProductListViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelImp.swift; sourceTree = "<group>"; };
 		57E1299BE75B4C85DDF73F8D /* Pods-ProsrochkaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProsrochkaAppTests.release.xcconfig"; path = "Target Support Files/Pods-ProsrochkaAppTests/Pods-ProsrochkaAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		3817CAD727E1E87C000B96EF /* ProsrochkaApp */ = {
 			isa = PBXGroup;
 			children = (
+				38E488AF27FC2D8A0013B6C1 /* Service */,
 				38E2D3E727E48CE400EC3294 /* ViewControllers */,
 				38E2D3E427E487D100EC3294 /* ViewModels */,
 				38E2D3DE27E4869C00EC3294 /* CoreData */,
@@ -250,6 +253,14 @@
 				3839E8FA27E9F565005C1C5A /* NumpadCollectionViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		38E488AF27FC2D8A0013B6C1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				38E488B027FC2D990013B6C1 /* NotificationService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		EE7F7BACED4F50D41FD56AEE /* Pods */ = {
@@ -487,6 +498,7 @@
 				38E2D3E227E486BC00EC3294 /* Product+CoreDataProperties.swift in Sources */,
 				3839E8FB27E9F565005C1C5A /* NumpadCollectionViewController.swift in Sources */,
 				3817CB0B27E1EAD6000B96EF /* CustomTextField.swift in Sources */,
+				38E488B127FC2D990013B6C1 /* NotificationService.swift in Sources */,
 				38B1E24327EF8101003CED9F /* ExpirationDateViewModel.swift in Sources */,
 				38E2D3DD27E4844300EC3294 /* Overdue.xcdatamodeld in Sources */,
 				38F143D027E33375009402AF /* TagUIView.swift in Sources */,
@@ -672,6 +684,8 @@
 				DEVELOPMENT_TEAM = WSCHZVTX6D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProsrochkaApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Prosrochka;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take picture of products";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -701,6 +715,8 @@
 				DEVELOPMENT_TEAM = WSCHZVTX6D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProsrochkaApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Prosrochka;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take picture of products";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -20,7 +20,7 @@ class ExpirationDateViewController: UIViewController {
     private let viewModel = ExpirationDateViewModel()
     
     private let createDateTextField: CustomTextField = {
-        $0.keyboardType = .numberPad
+//        $0.keyboardType = .numberPad
         $0.placeholder = "Дата изготовления (день-месяц-год)"
         return $0
     }(CustomTextField(frame: .zero))
@@ -44,6 +44,8 @@ class ExpirationDateViewController: UIViewController {
         $0.selectedSegmentIndex = 0
         return $0
     }(UISegmentedControl(items: ["Day", "Month", "Year"]))
+    
+    var datePicker = UIDatePicker()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,14 @@ class ExpirationDateViewController: UIViewController {
         numPadCollectionView.dateClosure = { date in
             self.numPadCollectionView.displayData = self.viewModel.formattedFinalDate() ?? ""
         }
+        datePicker.datePickerMode = .date
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         setupToolbar()
+        datePickerInit()
     }
     
     @objc private func handleAddItemButton(_ sender: UIButton) {
@@ -63,7 +72,9 @@ class ExpirationDateViewController: UIViewController {
     }
     
     
-  
+    private func datePickerInit() {
+        createDateTextField.inputView = datePicker
+    }
     
     private func setupToolbar() {
         let bar = UIToolbar()

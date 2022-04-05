@@ -11,6 +11,7 @@ class ProductListViewController: UIViewController {
     
     private let tableView = UITableView()
     private let viewModel = ProductListViewModelImp()
+    private let searchController = UISearchController()
     
     private let addButton: UIButton = {
         $0.setTitle("+ Добавить", for: .normal)
@@ -23,6 +24,7 @@ class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.searchController = searchController
         if #available(iOS 13.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "circles.hexagonpath.fill"), style: .plain, target: self, action: nil)
         } else {
@@ -32,7 +34,6 @@ class ProductListViewController: UIViewController {
         initTableView()
         initViews()
         viewModel.getProducts()
-//        viewModel.deleteAll()
     }
     
     private func initTableView() {
@@ -88,10 +89,7 @@ extension ProductListViewController: UITableViewDataSource {
         vc.productItem = viewModel.listOfProduct[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-
 }
-
 
 extension ProductListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,8 +103,7 @@ extension ProductListViewController: UITableViewDelegate {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }
-        let largeFont = UIFont.systemFont(ofSize: 60)
-        deleteAction.backgroundColor = .white
+        deleteAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     

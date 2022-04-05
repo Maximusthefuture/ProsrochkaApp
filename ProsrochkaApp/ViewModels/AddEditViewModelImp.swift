@@ -43,8 +43,24 @@ class AddEditViewModelImp {
         pictureObject.picture = imageData
         product.imageThumbnail = imageDataScaledToHeight(imageData ?? Data(), height: 120)
         product.image = pictureObject
-        
         coreDataStack.saveContext()
+        
+        let calendar = Calendar.current
+        
+       var date = expiredDate
+        var isNotificationOn: Bool?
+        if let isNotificationOn = isNotificationOn {
+            if isNotificationOn {
+//                NotificationManager.shared.scheduleNotification(time: scheduledTime, dailyTask: dailyItem)
+                let newDate = addDaysToDate(daysCount: -3, date: date!)
+            }
+        }
+    }
+    
+    private func addDaysToDate(daysCount: Int, date: Date) -> Date? {
+        let calendar = Calendar.current
+        let scheduledTime = calendar.date(byAdding: .day, value: -3, to: date)
+        return scheduledTime
     }
     
     private func imageDataScaledToHeight(_ imageData: Data, height: CGFloat) -> Data? {
