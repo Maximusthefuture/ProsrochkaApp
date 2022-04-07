@@ -13,15 +13,24 @@ import UIKit
 class ExpirationDateViewController: UIViewController {
     
     private let dateSegmentControlPadding: CGFloat = 16
-    private let numPadCollectionView = NumpadCollectionViewController()
+//    private let numPadCollectionView = NumpadCollectionViewController()
     var getDate:((Date?, Date?) -> Void)?
     var dateClosure:((String) -> Void)?
     
     private let viewModel = ExpirationDateViewModel()
     
     private let createDateTextField: CustomTextField = {
-//        $0.keyboardType = .numberPad
-        $0.placeholder = "Дата изготовления (день-месяц-год)"
+        $0.placeholder = "Дата изготовления"
+        return $0
+    }(CustomTextField(frame: .zero))
+    
+    private let expDateTextField: CustomTextField = {
+        $0.placeholder = "Дата окончания срока годности"
+        return $0
+    }(CustomTextField(frame: .zero))
+    
+    private let shelfLifeTextField: CustomTextField = {
+        $0.placeholder = "Срок годности"
         return $0
     }(CustomTextField(frame: .zero))
     
@@ -39,31 +48,22 @@ class ExpirationDateViewController: UIViewController {
         return $0
     }(UIButton(frame: .zero))
     
-    private let dateSegmentControl: UISegmentedControl = {
-        $0.addTarget(self, action: #selector(handleDateSegmentControl), for: .valueChanged)
-        $0.selectedSegmentIndex = 0
-        return $0
-    }(UISegmentedControl(items: ["Day", "Month", "Year"]))
+    var createDatePicker = UIDatePicker()
     
-    var datePicker = UIDatePicker()
+    var expDatePicker = UIDatePicker()
  
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        initViews()
-        createDateTextField.delegate = self
-        numPadCollectionView.dateDelegate = self
-        numPadCollectionView.dateClosure = { date in
-            self.numPadCollectionView.displayData = self.viewModel.formattedFinalDate() ?? ""
-        }
-        datePicker.datePickerMode = .date
-        if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = .wheels
-        } else {
-            // Fallback on earlier versions
-        }
-        setupToolbar()
+//        initViews()
+        shelfLifeTextField.delegate = self
+        expDateTextField.delegate = self
+        
+        initStackView()
         datePickerInit()
+        setupToolbar()
+   
+       
     }
     
     @objc private func handleAddItemButton(_ sender: UIButton) {
@@ -73,58 +73,78 @@ class ExpirationDateViewController: UIViewController {
     
     
     private func datePickerInit() {
-        createDateTextField.inputView = datePicker
+        createDatePicker.datePickerMode = .date
+        expDatePicker.datePickerMode = .date
+        if #available(iOS 13.4, *) {
+            createDatePicker.preferredDatePickerStyle = .wheels
+            expDatePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        createDateTextField.inputView = createDatePicker
+        expDateTextField.inputView = expDatePicker
     }
     
     private func setupToolbar() {
-        let bar = UIToolbar()
+        let createBar = UIToolbar()
         let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(hideKeyBoard))
-        bar.items = [done]
-        bar.sizeToFit()
-        createDateTextField.inputAccessoryView = bar
+        createBar.items = [done]
+        createBar.sizeToFit()
+        let expBar = UIToolbar()
+        let expDone = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(expTextFieldHandleChange))
+        expBar.items = [expDone]
+        expBar.sizeToFit()
+        createDateTextField.inputAccessoryView = createBar
+        expDateTextField.inputAccessoryView = expBar
+        
        
     }
+
+    @objc private func expTextFieldHandleChange() {
+        self.view.endEditing(true)
+        expDateTextField.text = "\(expDatePicker.date)"
+//        viewModel.expDate.value = expDatePicker.date
+    }
+    
     @objc private func hideKeyBoard() {
         self.view.endEditing(true)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let newString = dateFormatter.string(from: createDatePicker.date)
+        createDateTextField.text = newString
+//        viewModel.createdDate.value = createDatePicker.date
     }
-    
-    @objc private func handleDateSegmentControl(_ sender: UISegmentedControl) {
-        let data: DateChange?
-        switch sender.selectedSegmentIndex {
-        case 0: data = .day
-        case 1: data = .month
-        case 2: data = .year
-        default:
-            data = .day
-        }
-        viewModel.data = data
-    }
-    
-   
-    private func initViews() {
-        view.addSubview(createDateTextField)
-        view.addSubview(dateSegmentControl)
-        view.addSubview(addItemButton)
-        dateSegmentControl.anchor(top: createDateTextField.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: dateSegmentControlPadding, left: dateSegmentControlPadding, bottom: 0, right: dateSegmentControlPadding))
-        createDateTextField.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
-        view.addSubview(numPadCollectionView.view)
-        numPadCollectionView.view.anchor(top: dateSegmentControl.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
-        addItemButton.anchor(top: numPadCollectionView.view.bottomAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 42, bottom: 16, right: 42),size: .init(width: 0, height: 50))
+
+    private func initStackView() {
+        let stackView = UIStackView(arrangedSubviews:
+                                        [createDateTextField, shelfLifeTextField, expDateTextField, addItemButton])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        addItemButton.translatesAutoresizingMaskIntoConstraints = false
+        addItemButton.widthAnchor.constraint(equalToConstant: view.frame.width / 2).isActive = true
+        view.addSubview(stackView)
         
+        stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
     }
 }
 
+
+
 extension ExpirationDateViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-       
-        if textField.text!.count == 2 || textField.text!.count == 5 {
-            if string != "" {
-                textField.text = textField.text! + "-"
-            }
-        } else if textField.text?.count == 8 {
-            viewModel.calculateExpDate(date: textField.text ?? "")
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("text is", textField.text)
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+//        print("text is changing", textField.text)
+        if textField == expDateTextField {
+//            expDateTextField.text = viewModel.getShelfTime(text: createDateTextField.text!)
+        } else if textField == createDateTextField {
+            
+        } else if textField == shelfLifeTextField {
+            expDateTextField.text = viewModel.getShelfTime(text: createDateTextField.text!, shelfTime: shelfLifeTextField.text! )
         }
-        return textField.text?.count == 8 ? false : true
     }
 }
 

@@ -19,7 +19,7 @@ class AddEditProductViewController: UIViewController {
     var productItem: Product?
     
     let imageView: UIImageView = {
-        $0.backgroundColor = .systemGray
+        $0.backgroundColor = .purple
         return $0
     }(UIImageView(frame: .zero))
     

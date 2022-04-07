@@ -44,6 +44,30 @@ class ExpirationDateViewModel {
         }
     }
     
+    func getShelfTime(text: String, shelfTime: String) -> String {
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        var result = ""
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        if let dt = dateFormatter.date(from: text) {
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            var dateOption = DateChange.day
+            if shelfTime.last == "d" {
+                dateOption = .day
+            } else if shelfTime.last == "m" {
+                dateOption = .month
+            } else if shelfTime.last == "y" {
+                dateOption = .year
+            }
+            let resultShelfTime = shelfTime.trimmingCharacters(in: CharacterSet(charactersIn: "0123456789.").inverted)
+            let finalDate = calendar.date(byAdding: getDate(dateEnum: dateOption), value: Int(resultShelfTime) ?? 0, to: dt)
+            let formattedStringDate = dateFormatter.string(from: finalDate!)
+            result = formattedStringDate
+        }
+        
+        return result
+    }
+    
     func getDate(dateEnum: DateChange) -> Calendar.Component {
         var componentsEnum = Calendar.Component.day
         switch dateEnum {
